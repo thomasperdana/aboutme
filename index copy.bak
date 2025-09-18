@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thomas & Anna Perdana - Ministry & Business Consulting</title>
+  <style>
+    :root {
+      --primary: #0f1b3a;
+      --secondary: #1a2a6c;
+      --accent: #2a4a8a;
+      --accent-bright: #4d7cff;
+      --accent-warm: #ff6b6b;
+      --accent-cool: #4ecdc4;
+      --text-light: #e0e0ff;
+      --text-medium: #b0b0d0;
+      --text-dark: #cccccc;
+      --card-bg: rgba(30, 40, 80, 0.7);
+      --section-bg: rgba(20, 30, 60, 0.8);
+      --border-color: rgba(100, 120, 200, 0.3);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0a0f25, #121a3a, #0a0f25);
+      color: var(--text-light);
+      line-height: 1.6;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 2rem 1rem;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.4);
+      border-bottom: 2px solid var(--accent-bright);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(77, 124, 255, 0.5);
+    }
+
+    nav {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      background: rgba(42, 74, 138, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background: var(--accent-bright);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    section {
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: auto;
+      background: var(--section-bg);
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--border-color);
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #aaccff;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(to right, var(--accent-bright), var(--accent-cool));
+      border-radius: 2px;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-medium);
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 1rem;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      border-color: var(--accent-bright);
+    }
+
+    ul {
+      list-style-type: none;
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    ul li {
+      margin-bottom: 0.8rem;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--text-medium);
+    }
+
+    ul li:before {
+      content: '▶';
+      position: absolute;
+      left: 0;
+      color: var(--accent-bright);
+      font-size: 0.8rem;
+      top: 3px;
+    }
+
+    ol {
+      counter-reset: my-counter;
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    ol li {
+      margin-bottom: 0.8rem;
+      padding-left: 2rem;
+      position: relative;
+      color: var(--text-medium);
+    }
+
+    ol li:before {
+      counter-increment: my-counter;
+      content: counter(my-counter);
+      position: absolute;
+      left: 0;
+      background: var(--accent-bright);
+      color: #0f1b3a;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: linear-gradient(to right, var(--accent), var(--accent-bright));
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn:hover {
+      background: linear-gradient(to right, var(--accent-bright), var(--accent-cool));
+      transform: translateY(-2px);
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      background: rgba(0, 0, 0, 0.4);
+      margin-top: 2rem;
+    }
+
+    blockquote {
+      font-style: italic;
+      margin: 1rem 0;
+      padding: 1rem 1rem 1rem 1.5rem;
+      border-left: 3px solid var(--accent-bright);
+      background: rgba(42, 74, 138, 0.2);
+      color: #d0e0ff;
+    }
+
+    .highlight {
+      color: var(--accent-warm);
+      font-weight: 600;
+    }
+
+    .divider {
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--accent-bright), transparent);
+      margin: 2rem 0;
+      border-radius: 1px;
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+      <header>
+    <h1>Thomas & Anna Perdana</h1>
+    <p>Ministry & Business Consulting</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#faith">Faith</a>
+      <a href="#salvation">Salvation</a>
+      <a href="#testimony">Testimony</a>
+      <a href="#ministry">Ministry</a>
+      <a href="#resources">Resources</a>
+      <a href="#partnership">Partnership</a>
+      <a href="#services">Services</a>
+    </nav>
+  </header>
+
+   <p></p>>
+
+  <section id="about">
+    <h2 class="section-title">Learn About Us</h2>
+    <p>Married for over 30 years, serving God and helping others succeed in both business and spiritual life.</p>
+    <p>Based in Orlando, Florida, they have dedicated their lives to reaching out to people in Florida, USA, Indonesia, and worldwide through their ministry and business consulting services.</p>
+    <div class="card">
+      <strong>30+ Years Married</strong> | <strong>Global Reach</strong> | <strong>Orlando Based</strong>
+    </div>
+    <blockquote>
+      “The secret things belong unto the Lord our God: but those things which are revealed belong unto us and to our children for ever, that we may do all the words of this law.”<br/>
+      — Deuteronomy 29:29
+    </blockquote>
+    <p><em>We appreciate your prayers as we continue our ministry and business endeavors around the world.</em></p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="faith">
+    <h2 class="section-title">Statement of Faith</h2>
+    <ul>
+      <li>We believe in one God, eternally existing in three persons: Father, Son, and Holy Spirit.</li>
+      <li>We believe in the deity of Jesus Christ, His virgin birth, sinless life, miracles, and atoning death.</li>
+      <li>We believe in the Holy Spirit who convicts, regenerates, indwells, and empowers believers.</li>
+      <li>We believe the Bible is the inspired, infallible, and authoritative Word of God.</li>
+      <li>We believe in the universal Church as the body of Christ and the importance of local fellowship.</li>
+      <li>We believe all mankind has sinned and fallen short of God’s glory.</li>
+      <li>We believe salvation is by grace through faith in Jesus Christ alone.</li>
+      <li>We believe in Christ’s return, the resurrection of the dead, and eternal judgment.</li>
+      <li>We believe Satan is a real being who opposes God and His people.</li>
+      <li>We believe in spiritual gifts given by God for the edification of the Church.</li>
+    </ul>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="salvation">
+    <h2 class="section-title">Do you know that God loves you?</h2>
+    <h4>John 3:16</h4>
+    <p>For God so loved the world that He gave His only begotten Son, that whosoever believeth in Him should not perish, but have everlasting life.</p>
+    <p>You have to know that God loves you</p>
+    <p>He said that He gave His only Son</p>
+    <p>Now it is your turn to believe in Him</p>
+
+    <h4>Ephesians 2:8-9</h4>
+    <p>For by grace are you saved through faith; and that not of yourselves: it is the gift of God: Not of works, lest any man should boast.</p>
+    <p>Salvation is a gift from God, not something you earn.</p>
+    
+
+    <h4>I (Thomas) was saved by Grace when I was young.</h4>
+    <p>When I was young, my Pastor told me that God loves me. So I prayed to God and believes in Him.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="testimony">
+    <h2 class="section-title">Testimony</h2>
+    <p>Throughout my life, I've learned that when problems arise, our natural instinct is often to run away. I've moved from place to place, thinking that a change of environment would solve my challenges.</p>
+    <p>But I discovered something profound: people are people everywhere you go. The same human nature, the same struggles, the same issues exist regardless of location.</p>
+    <p>The breakthrough came when I learned to "run away to God" instead of running away from my problems. When we bring our challenges to Jesus, we find that He is not just a sympathetic listener, but an active problem solver.</p>
+    <p>Jesus doesn't just understand your problems - He solves them. He doesn't just offer comfort - He offers transformation. He is your Savior in every sense of the word.</p>
+    <p>This shift in perspective has revolutionized not only my personal life but also how I approach business consulting and ministry. True solutions come from turning toward God, not away from our circumstances.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="ministry">
+    <h2 class="section-title">Ministry</h2>
+    <ul>
+      <li><a href="https://westviewbaptist.org" target="_blank">Westview Baptist Church</a></li>
+      <li><a href="https://www.gideons.org" target="_blank"> The Gideons International</a></li>
+      <li><a href="https://www.gnglobal.org" target="_blank">GoodNews Global Ministry</a></li>
+      <li><a href="https://www.seminolesheriff.org/webbond" target="_blank">Seminole County Correctional Facility</a></li>
+      <li><a href="https://www.romcfl.org" target="_blank">Rescue Outreach Mission"</a></li>
+      <li><a href="https://thegoodnewstruck.org" target="_blank">GoodNewsTruck</a></li>
+    </ul>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="resources">
+    <h2 class="section-title">Free Resources</h2>
+    <div class="card">
+      <h3>WhatsApp Bible Study Group</h3>
+      <p>Join our Bible study community for daily encouragement and fellowship.</p>
+      <a href="https://chat.whatsapp.com/J7yg0N9jdq43lRAcDX9BNj" target="_blank" class="btn">Join Group</a>
+    </div>
+    <div class="card">
+      <h3>YouTube Channel</h3>
+      <p>Bible Study Videos & Teaching to deepen your understanding of Scripture.</p>
+      <a href="https://www.youtube.com/@sowingandreaping4540" target="_blank" class="btn">Watch Videos</a>
+    </div>
+    <div class="card">
+      <h3>FREE Webinar Series</h3>
+      <ul>
+        <li>AI+Sales+Marketing</li>
+      </ul>
+      <a href="https://youtu.be/MX3jdKehAQg" target="_blank" class="btn">Watch Webinars</a>
+    </div>
+    <div class="card">
+      <h3>FREE Webinar Series</h3>
+      <ul>
+        <li>AI+BibleStudy+BibleTranslation+1</li>
+      </ul>
+      <a href="https://youtu.be/g3fWn9eX3rI" target="_blank" class="btn">Watch Webinars</a>
+    </div>
+    <div class="card">
+      <h3>FREE Webinar Series</h3>
+      <ul>
+        <li>AI+BibleStudy+BibleTranslation+2</li>
+      </ul>
+      <a href="https://youtu.be/gZAvhVuVPrQ" target="_blank" class="btn">Watch Webinars</a>
+    </div>
+    <div class="card">
+      <h3>FREE Webinar Series</h3>
+      <ul>
+        <li>AI+BibleStudy+BibleTranslation+3</li>
+      </ul>
+      <a href="https://youtu.be/MX3jdKehAQg" target="_blank" class="btn">Watch Webinars</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="partnership">
+    <h2 class="section-title">Partnership</h2>
+    <div class="card">
+      <h3>Ministry Partners</h3>
+      <p>Join us in spreading the Gospel and ministering to people around the world.</p>
+      <ul>
+        <li>Prayer support network</li>
+        <li>Collaborative ministry opportunities</li>
+        <li>Resource sharing</li>
+        <li>Global outreach participation</li>
+      </ul>
+      <a href="https://pro.cashinblue.com/contact-us" target="_blank" class="btn">Partner With Us</a>
+    </div>
+    <div class="card">
+      <h3>Business Partners</h3>
+      <p>Collaborate with us in business ventures that honor God while creating value and serving others in the marketplace.</p>
+      <ul>
+        <li>Strategic business collaboration</li>
+        <li>AI and technology expertise</li>
+        <li>Consulting and coaching opportunities</li>
+        <li>Global market access</li>
+      </ul>
+      <a href="https://pro.cashinblue.com/contact-us" target="_blank" class="btn">Partner With Us</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="services">
+    <h2 class="section-title">Professional Services</h2>
+    <div class="card">
+      <h3>Marketing Expert</h3>
+      <p>Advanced marketing strategies and consulting services to grow your business and reach your target audience effectively.</p>
+      <a href="https://share.mysite.report/share/e5c60628" target="_blank" class="btn">Learn More</a>
+    </div>
+    <div class="card">
+      <h3>AI Expert</h3>
+      <p>AI solutions for business growth and efficiency, leveraging cutting-edge technology to transform your operations.</p>
+      <a href="https://join.aiforbusiness.com/717.html" target="_blank" class="btn">Learn More</a>
+    </div>
+    <div class="card">
+      <h3>Business Expert</h3>
+      <p>Strategic consulting for CEOs and business leaders to achieve sustainable growth and success.</p>
+      <a href="https://docs.google.com/document/d/1ovVjl5iu3JUiaFqjqlupNKL4ukpan5Xkecr0MFBtGyk/edit?usp=sharing" target="_blank" class="btn">Learn More</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+    <footer>
+            <nav>
+      <a href="#about">About</a>
+      <a href="#faith">Faith</a>
+      <a href="#salvation">Salvation</a>
+      <a href="#testimony">Testimony</a>
+      <a href="#ministry">Ministry</a>
+      <a href="#resources">Resources</a>
+      <a href="#partnership">Partnership</a>
+      <a href="#services">Services</a>
+    </nav>
+    <p></p>
+    <p>&copy; 2025 Thomas & Anna Perdana | Ministry & Business Consulting</p>
+    <p><em>"But thou shalt remember the Lord thy God: for it is he that giveth thee power to get wealth..." — Deuteronomy 8:18</em></p>
+  </footer>
+</body>
+</html>
